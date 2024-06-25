@@ -1,0 +1,107 @@
+
+
+body {
+    margin: 0px;
+    transition: all 0.5s;
+    font-family: monospace, sans-serif;
+}
+
+header {
+    height: 5vh;
+    background-color: rgb(46, 240, 8);
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+    align-items: center;
+    justify-content:space-between
+}
+
+header > h1 {
+    font-size: 3em;
+}
+
+header > button {
+    background-color: black;
+    color: white;
+    font-size: 1.1em;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s;
+}
+
+header > button:hover {
+    background-color: white;
+    color: black;
+    font-size: 1.15em;
+}
+
+#controls {
+    /* background-color: antiquewhite; */
+    padding: 20px;
+    height: 4vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#controls > button {
+    background-color: rgb(46, 240, 8);
+    color: black;
+    font-size: 1.1em;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    border: none;
+    margin: 5px;
+    transition: all 0.2s;
+}
+
+#controls > button:hover {
+    font-size: 1.15em;
+}
+
+#controls > div {
+    font-size: 1.5em;
+    font-family: monospace, sans-serif;
+}
+
+#container {
+    display: flex;
+    /* background-color: aqua; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#cellGrid {
+    /* background-color: blueviolet; */
+    border-style: solid;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    margin: 0px;
+}
+
+.row > div {
+    /* background-color: aquamarine; */
+    border-style: solid;
+    height: 100px;
+    width: 100px;
+    /* margin: 5px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 7em;
+    font-family: monospace, sans-serif;
+    transition: all 0.2s;
+}
+
+.row > div:hover {
+    background-color: black;
+    color: white;
+    border-color: black;
+}
