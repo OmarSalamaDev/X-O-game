@@ -59,8 +59,7 @@ header > button:active {
 
 
 #controls {
-    /* background-color: antiquewhite; */
-    padding: 30px;
+    padding: 40px;
     height: 4vw;
     display: flex;
     align-items: center;
@@ -93,7 +92,7 @@ header > button:active {
 
 
 #container {
-    display: flex;
+    margin: 0px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -136,11 +135,11 @@ header > button:active {
     align-items: center;
     justify-content: center;
     padding: 10px;
-    margin: 10px;
+    margin: 10px 0px;
 }
 
 #resultTable {
-    font-size: 1.4em;
+    font-size: 1.3em;
     font-family: monospace, sans-serif;
 }
 
