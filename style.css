@@ -1,10 +1,25 @@
 
 
+    /*/========> ... body, general styling and variables... <========/*/
+
+    :root {
+        --header-background-color: rgb(46, 240, 8);
+        --header-text-color: black;
+        --body-background-color: white;
+        --body-content-color: black;
+    }
+
 body {
     margin: 0px;
     transition: all 0.5s;
     font-family: Helvetica, sans-serif;
 }
+
+
+
+
+    /*/========> ... header and it's elements ... <========/*/
+
 
 header {
     height: 5vh;
@@ -33,11 +48,15 @@ header > button {
     font-family: Helvetica, sans-serif;
 }
 
-header > button:hover {
+header > button:active {
     background-color: white;
     color: black;
     scale: 105%;
 }
+
+
+    /*/========> ... control div and it's elements ... <========/*/
+
 
 #controls {
     /* background-color: antiquewhite; */
@@ -60,7 +79,7 @@ header > button:hover {
     transition: all 0.2s;
 }
 
-#controls > button:hover {
+#controls > button:active {
     font-size: 1.15em;
 }
 
@@ -69,16 +88,18 @@ header > button:hover {
     font-family: Verdana, sans-serif;
 }
 
+
+    /*/========> ... the 9x9 cells grid ... <========/*/
+
+
 #container {
     display: flex;
-    /* background-color: aqua; */
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 #cellGrid {
-    /* background-color: blueviolet; */
     border-style: solid;
 }
 
@@ -89,11 +110,9 @@ header > button:hover {
 }
 
 .row > div {
-    /* background-color: aquamarine; */
     border-style: solid;
     height: 100px;
     width: 100px;
-    /* margin: 5px; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -102,11 +121,15 @@ header > button:hover {
     transition: all 0.2s;
 }
 
-.row > div:hover {
+.row > div:active {
     background-color: black;
     color: white;
     border-color: black;
 }
+
+
+    /*/========> ... results table ... <========/*/
+
 
 #result {
     display: flex;
@@ -117,11 +140,34 @@ header > button:hover {
 }
 
 #resultTable {
-    font-size: 1.5em;
+    font-size: 1.4em;
     font-family: monospace, sans-serif;
 }
 
 #resultTable th, td {
     padding: 0px 20px;
 } 
+
+
+    /*/========> ... media quereies ... <========/*/
+
+
+@media (hover: hover) {     /* apply hover effect for only supported devices */
+    header > button:hover {
+        background-color: white;
+        color: black;
+        scale: 105%;
+    }
+    #controls > button:hover {
+        font-size: 1.15em;
+    }
+    .row > div:hover {
+        background-color: black;
+        color: white;
+        border-color: black;
+    }
+}
+
+
+
 

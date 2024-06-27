@@ -14,52 +14,53 @@
         <h1>X&O</h1>
         <button onclick="switchTheme()" id="switchThemeBtn">Dark Theme</button>
     </header>
+    <div id="scene">
+        <div id="controls">
+            <button id="ctrlBtn1">2-player mode</button>
+            <button id="ctrlBtn2">play with computer</button>
+            <button id="ctrlBtn3" hidden>easy</button>
+            <button id="ctrlBtn4" hidden>hard</button>
+            <div id="ctrlText"></div>
+        </div>
 
-    <div id="controls">
-        <button id="ctrlBtn1">2-player mode</button>
-        <button id="ctrlBtn2">play with computer</button>
-        <button id="ctrlBtn3" hidden>easy</button>
-        <button id="ctrlBtn4" hidden>hard</button>
-        <div id="ctrlText"></div>
-    </div>
-
-    <div id="container">
-        <div id="cellGrid">
-            <div class="row">
-                <div id="cell1">0</div>
-                <div id="cell2">1</div>
-                <div id="cell3">2</div>
-            </div>
-            <div class="row">
-                <div id="cell4">3</div>
-                <div id="cell5">4</div>
-                <div id="cell6">5</div>
-            </div>
-            <div class="row">
-                <div id="cell7">6</div>
-                <div id="cell8">7</div>
-                <div id="cell9">8</div>
+        <div id="container">
+            <div id="cellGrid">
+                <div class="row">
+                    <div id="cell1">0</div>
+                    <div id="cell2">1</div>
+                    <div id="cell3">2</div>
+                </div>
+                <div class="row">
+                    <div id="cell4">3</div>
+                    <div id="cell5">4</div>
+                    <div id="cell6">5</div>
+                </div>
+                <div class="row">
+                    <div id="cell7">6</div>
+                    <div id="cell8">7</div>
+                    <div id="cell9">8</div>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div id="result">
-        <table id="resultTable" hidden>
-            <thead>
-                <tr>
-                    <th id="player-1">player 1</th>
-                    <th id="player-2">player 2</th>
-                    <th>tie</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td id="score_1">0</td>
-                    <td id="score_2">0</td>
-                    <td id="numOfTies">0</td>
-                </tr>
-            </tbody>
-        </table>
+        <div id="result">
+            <table id="resultTable" hidden>
+                <thead>
+                    <tr>
+                        <th id="player-1">player 1</th>
+                        <th id="player-2">player 2</th>
+                        <th>tie</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td id="score_1">0</td>
+                        <td id="score_2">0</td>
+                        <td id="numOfTies">0</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
     
 </body>
