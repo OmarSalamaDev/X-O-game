@@ -138,7 +138,7 @@ class Player {
     }
     tie(playerToStartFrom) {
         ctrlText.textContent = "A tie!";
-        colorCells("rgb(255, 81, 81)", ...cells);
+        colorCells("var(--secondary-color)", ...cells);
         document.getElementById("numOfTies").textContent = `${++Player.ties}`;
          // reset every thing after 2 sec.
          setTimeout(() => {  
@@ -230,7 +230,7 @@ function checkWin() {
             && cells[winPosibilites[i][0]].textContent === cells[winPosibilites[i][1]].textContent
             && cells[winPosibilites[i][1]].textContent === cells[winPosibilites[i][2]].textContent
         ){
-            colorCells("rgb(46, 240, 8)", cells[winPosibilites[i][0]], cells[winPosibilites[i][1]], cells[winPosibilites[i][2]]);
+            colorCells("var(--main-color)", cells[winPosibilites[i][0]], cells[winPosibilites[i][1]], cells[winPosibilites[i][2]]);
             return true;
         }
     }
@@ -297,35 +297,26 @@ function hard() {
 
     
 let isDarkTheme = false;
-let switchThemeBtn = document.getElementById("switchThemeBtn");
+const switchThemeBtn = document.getElementById("switchThemeBtn");
 
-function switchTheme() {
-
+switchThemeBtn.onclick = () => {
+    if (!isDarkTheme) {
+        document.documentElement.style.setProperty("--body-background-color", "black");
+        document.documentElement.style.setProperty("--body-content-color", "white");
+        document.documentElement.style.setProperty("--main-color", "rgb(65, 192, 39)");
+        document.documentElement.style.setProperty("--secondary-color", "rgb(193, 16, 16)");
+        switchThemeBtn.textContent = "Light Theme";
+        isDarkTheme = true;
+    }
+    else {
+        document.documentElement.style.setProperty("--body-background-color", "white");
+        document.documentElement.style.setProperty("--body-content-color", "black");
+        document.documentElement.style.setProperty("--main-color", "rgb(46, 240, 8)");
+        document.documentElement.style.setProperty("--secondary-color", "rgb(255, 81, 81)");
+        switchThemeBtn.textContent = "Dark Theme";
+        isDarkTheme = false;
+    }
 }
 
 
-function watchForHover() {
-  // lastTouchTime is used for ignoring emulated mousemove events
-  let lastTouchTime = 0
 
-  function enableHover() {
-    if (new Date() - lastTouchTime < 500) return
-    document.body.classList.add('hasHover')
-  }
-
-  function disableHover() {
-    document.body.classList.remove('hasHover')
-  }
-
-  function updateLastTouchTime() {
-    lastTouchTime = new Date()
-  }
-
-  document.addEventListener('touchstart', updateLastTouchTime, true)
-  document.addEventListener('touchstart', disableHover, true)
-  document.addEventListener('mousemove', enableHover, true)
-
-  enableHover()
-}
-
-watchForHover()
