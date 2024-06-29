@@ -13,19 +13,19 @@
 
     <header>
         <h1>X&O</h1>
-        <button id="switchThemeBtn">Dark Theme</button>
+        <button id="switchThemeBtn" class="unselectable">Dark Theme</button>
     </header>
     <div id="scene">
         <div id="controls">
-            <button id="ctrlBtn1" class="bodyBtns">2-player mode</button>
-            <button id="ctrlBtn2" class="bodyBtns">play with computer</button>
-            <button id="ctrlBtn3" class="bodyBtns">easy</button>
-            <button id="ctrlBtn4" class="bodyBtns">hard</button>
-            <div id="ctrlText"></div>
+            <button id="ctrlBtn1" class="bodyBtns" class="unselectable">2-player mode</button>
+            <button id="ctrlBtn2" class="bodyBtns" class="unselectable">play with computer</button>
+            <button id="ctrlBtn3" class="bodyBtns" class="unselectable">easy</button>
+            <button id="ctrlBtn4" class="bodyBtns" class="unselectable">hard</button>
+            <div id="ctrlText" class="unselectable"></div>
         </div>
 
         <div id="container">
-            <div id="cellGrid">
+            <div id="cellGrid" class="unselectable">
                 <div class="row">
                     <div id="cell1">0</div>
                     <div id="cell2">1</div>
@@ -45,7 +45,7 @@
         </div>
 
         <div id="lowerSection">
-            <table id="resultTable">
+            <table id="resultTable" class="unselectable">
                 <thead>
                     <tr>
                         <th id="player-1">player 1</th>
@@ -61,7 +61,7 @@
                     </tr>
                 </tbody>
             </table>
-            <button id="backBtn" class="bodyBtns">back</button>
+            <button id="backBtn" class="bodyBtns" class="unselectable">back</button>
         </div>
     </div>
     

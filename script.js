@@ -8,7 +8,7 @@ let turnCounts;
 let enableCellClick;
 
 
-    //==========> ... controls section: buttons and result table text ... <==========//
+    //==========> ... controls section ... <==========//
 
 
 const controlsContainer = document.getElementById("controls");
@@ -333,6 +333,7 @@ function hard() {
         cells.forEach((cell) => cell.onclick = null);
         startGame = false;
         turnCounts = 0;
+        Player.ties = 0;
         emptyCells();
         randomizeCells();
     }
