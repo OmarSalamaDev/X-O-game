@@ -19,6 +19,16 @@ body {
     transition: all 0.3s linear;
 }
 
+#scene {
+    /* background-color: rgb(74, 35, 231); */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 400px;
+    margin: auto;
+}
+
 .unselectable {
     -webkit-user-select: none; /* Safari */
     -moz-user-select: none;    /* Firefox */
