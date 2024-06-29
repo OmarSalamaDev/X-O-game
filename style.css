@@ -70,7 +70,7 @@ header > button:active {
     justify-content: center;
 }
 
-#controls > button {
+.bodyBtns {
     background-color: var(--main-color);
     color: black;
     font-size: 1em;
@@ -82,7 +82,7 @@ header > button:active {
     transition: all 0.2s;
 }
 
-#controls > button:active {
+.bodyBtns:active {
     font-size: 1.15em;
 }
 
@@ -137,8 +137,9 @@ header > button:active {
     /*/========> ... results table ... <========/*/
 
 
-#result {
+#lowerSection {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 10px;
@@ -155,6 +156,10 @@ header > button:active {
     padding: 0px 20px;
 } 
 
+#backBtn {
+    margin: 10px;
+}
+
 
     /*/========> ... media quereies ... <========/*/
 
@@ -165,7 +170,7 @@ header > button:active {
         color: var(--body-content-color);
         scale: 105%;
     }
-    #controls > button:hover {
+    .bodyBtns:hover {
         font-size: 1.15em;
     }
     .row > div:hover {

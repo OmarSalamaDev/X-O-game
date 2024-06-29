@@ -17,7 +17,9 @@ const ctrlBtn2 = document.getElementById("ctrlBtn2");
 const ctrlBtn3 = document.getElementById("ctrlBtn3");
 const ctrlBtn4 = document.getElementById("ctrlBtn4");
 const ctrlText = document.getElementById("ctrlText");
+const lowerSection = document.getElementById("lowerSection");
 const resultTable = document.getElementById("resultTable");
+const backBtn = document.getElementById("backBtn"); 
 
 const cells = [
     document.getElementById("cell1"),
@@ -45,27 +47,32 @@ const winPosibilites = [
 ctrlBtn1.onclick = () => {
     controlsContainer.removeChild(ctrlBtn1);
     controlsContainer.removeChild(ctrlBtn2);
-    ctrlText.textContent = "player 1 (X), player 2 (O)";
+    controlsContainer.appendChild(ctrlText);
+    lowerSection.appendChild(resultTable);
+    lowerSection.appendChild(backBtn);
+    document.getElementById("player-1").textContent = "player 1";
+    document.getElementById("player-2").textContent = "player 2";
     startGame = true;
     emptyCells();
     gameMode1();
-    resultTable.removeAttribute("hidden");
 }
 
 ctrlBtn2.onclick = () => {
     controlsContainer.removeChild(ctrlBtn1);
     controlsContainer.removeChild(ctrlBtn2);
-    ctrlBtn3.removeAttribute("hidden");
-    ctrlBtn4.removeAttribute("hidden");
+    controlsContainer.appendChild(ctrlBtn3);
+    controlsContainer.appendChild(ctrlBtn4);
 }
 
 ctrlBtn3.onclick = () => {
     controlsContainer.removeChild(ctrlBtn3);
     controlsContainer.removeChild(ctrlBtn4);
+    controlsContainer.appendChild(ctrlText);
+    lowerSection.appendChild(resultTable);
+    lowerSection.appendChild(backBtn);
     startGame = true;
     emptyCells();
     gameMode2("easy");
-    resultTable.removeAttribute("hidden");
     document.getElementById("player-1").textContent = "you";
     document.getElementById("player-2").textContent = "computer";
 }
@@ -73,12 +80,23 @@ ctrlBtn3.onclick = () => {
 ctrlBtn4.onclick = () => {
     controlsContainer.removeChild(ctrlBtn3);
     controlsContainer.removeChild(ctrlBtn4);
+    controlsContainer.appendChild(ctrlText);
+    lowerSection.appendChild(resultTable);
+    lowerSection.appendChild(backBtn);
     startGame = true;
     emptyCells();
     gameMode2("hard");
-    resultTable.removeAttribute("hidden");
     document.getElementById("player-1").textContent = "you";
     document.getElementById("player-2").textContent = "computer";
+}
+
+window.onload = () => {
+    controlsContainer.removeChild(ctrlBtn3);
+    controlsContainer.removeChild(ctrlBtn4);
+    controlsContainer.removeChild(ctrlText);
+    lowerSection.removeChild(resultTable);
+    lowerSection.removeChild(backBtn);
+    randomizeCells();
 }
 
 
@@ -104,7 +122,6 @@ function randomizeCells() {
         return;
     }
 }
-randomizeCells();
 
 function colorCells(color, ...cells) {
     for(let cell of cells) {
@@ -250,6 +267,14 @@ function hard() {
     let order4 = [];    //>  |X| | |
     let order5 = [];    //>  | | | |
     let order6 = [];    //>  |X|O| |
+
+    if(turnCounts === 1) {    // at the first round, if the player filled one of the corners, fill the middle cell to minimize the players chance of winning.
+        if(cells[0].textContent === "X" || cells[2].textContent === "X" || cells[6].textContent === "X" || cells[8].textContent === "X") {
+            cells[4].textContent = "O";
+            return;
+        }
+    }
+
     for(let i = 0; i < 8; i++) {
         let cell1 = cells[winPosibilites[i][0]].textContent;
         let cell2 = cells[winPosibilites[i][1]].textContent;
@@ -291,6 +316,26 @@ function hard() {
     else if (ol5 !== 0) cells[order5[Math.floor(Math.random()*ol5)]].textContent = "O";    // if order 5 isn't empty.
     else cells[order6[Math.floor(Math.random()*ol6)]].textContent = "O";  
 }
+
+
+    //==========> ... back button logic ... <==========//
+
+
+    backBtn.onclick = () => {
+        controlsContainer.appendChild(ctrlBtn1);
+        controlsContainer.appendChild(ctrlBtn2);
+        controlsContainer.removeChild(ctrlText);
+        document.getElementById("score_1").textContent = "0";
+        document.getElementById("score_2").textContent = "0";
+        document.getElementById("numOfTies").textContent = "0";
+        lowerSection.removeChild(resultTable);
+        lowerSection.removeChild(backBtn);
+        cells.forEach((cell) => cell.onclick = null);
+        startGame = false;
+        turnCounts = 0;
+        emptyCells();
+        randomizeCells();
+    }
 
 
     //==========> ... theme switching logic ... <==========//
