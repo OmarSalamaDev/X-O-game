@@ -268,11 +268,21 @@ function hard() {
     let order5 = [];    //>  | | | |
     let order6 = [];    //>  |X|O| |
 
-    if(turnCounts === 1) {    // at the first round, if the player filled one of the corners, fill the middle cell to minimize the players chance of winning.
+    if(turnCounts === 1) {  
+        // at the first round, if the player filled one of the corners, fill the middle cell to minimize the players chance of winning.  
         if(cells[0].textContent === "X" || cells[2].textContent === "X" || cells[6].textContent === "X" || cells[8].textContent === "X") {
             cells[4].textContent = "O";
             return;
         }
+        // at the first round, if the player filled the middle cell, fill a corner.
+        else if(cells[4].textContent === "X") {
+            cells[2].textContent = "O";
+            return;
+        }
+    }
+
+    if(turnCounts === 1) {    
+        
     }
 
     for(let i = 0; i < 8; i++) {
